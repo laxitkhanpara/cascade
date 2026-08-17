@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root {
+  --background: #080b10;
+  --foreground: #e8eef4;
+  --muted: #8b9aab;
+  --card: #10151c;
+  --card-strong: #18202a;
+  --border: #1e2a36;
+  --accent: #f0b429;
+  --danger: #ff5c6a;
+  --ok: #3ecf8e;
+  --info: #5b8cff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  min-height: 100%;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, rgba(240, 180, 41, 0.08), transparent 50%),
+    radial-gradient(900px 420px at 100% 0%, rgba(255, 92, 106, 0.08), transparent 46%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #ff7180;
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--foreground);
+}
+
+.btn-secondary:hover {
+  background: var(--card-strong);
+}
+
+.field {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0c1117;
+  color: white;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.hazard {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #1a2330;
+  color: var(--muted);
+}
+
+.hazard-flood { color: #7dd3fc; background: rgba(125, 211, 252, 0.1); }
+.hazard-typhoon { color: #5eead4; background: rgba(94, 234, 212, 0.1); }
+.hazard-earthquake { color: #fbbf24; background: rgba(251, 191, 36, 0.12); }
+.hazard-tornado { color: #fb7185; background: rgba(251, 113, 133, 0.12); }
+.hazard-storm { color: #c4b5fd; background: rgba(196, 181, 253, 0.12); }
+
+.skeleton {
+  border-radius: 16px;
+  background: linear-gradient(90deg, #10151c, #18202a, #10151c);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
