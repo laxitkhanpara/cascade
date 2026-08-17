@@ -12,11 +12,12 @@ export function useApi<T>(url: string | null) {
 
   useEffect(() => {
     if (!url) return;
+    const endpoint = url;
     let cancelled = false;
 
     async function run() {
       try {
-        const response = await fetch(url);
+        const response = await fetch(endpoint);
         const body = (await response.json()) as T & ApiErrorBody;
         if (cancelled) return;
         if (!response.ok) {
