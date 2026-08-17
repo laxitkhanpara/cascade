@@ -1,9 +1,10 @@
+import { env } from "node:process";
 import neo4j, { type Driver, type Integer, type Session } from "neo4j-driver";
 
 const globalForNeo4j = globalThis as unknown as { cascadeDriver?: Driver };
 
 function requiredEnv(name: string): string {
-  const value = process.env[name];
+  const value = env[name];
   if (!value) {
     throw new ConfigError(
       `Missing ${name}. Copy .env.example to .env.local and add your CognoDB credentials.`,
@@ -30,7 +31,7 @@ export function getDriver(): Driver {
   if (!globalForNeo4j.cascadeDriver) {
     const uri = requiredEnv("COGNODB_URI");
     const password = requiredEnv("COGNODB_PASSWORD");
-    const user = process.env.COGNODB_USER || "cognodb";
+    const user = env.COGNODB_USER || "cognodb";
     globalForNeo4j.cascadeDriver = neo4j.driver(uri, neo4j.auth.basic(user, password));
   }
   return globalForNeo4j.cascadeDriver;
