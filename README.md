@@ -139,27 +139,27 @@ Loading, empty (unseeded graph), and database-unreachable states are handled on 
 
 ## Screenshots
 
-After the instance is seeded, capture:
+Overview — cities ranked by how many finished SKUs sit downstream:
 
-1. Overview with city blast-radius cards
-2. Simulate → Harrodsburg (cover glass) with the graph in red/amber
-3. Choke points list
-4. Helios Phone Pro exposure page
+![Cascade overview](docs/overview.png)
 
-Place PNGs in `docs/` if you add them to this README:
+Simulate a tornado in Harrodsburg. One Cypher walk hits the sole-source cover glass and eleven SKUs:
 
-```
-docs/overview.png
-docs/simulate-harrodsburg.png
-docs/choke-points.png
-docs/product-phone-pro.png
-```
+![Harrodsburg disruption](docs/simulate-harrodsburg.png)
+
+Choke points — parts with exactly one supplier, and every product that contains them:
+
+![Choke points](docs/choke-points.png)
+
+Helios Phone Pro — nested BOM geography:
+
+![Helios Phone Pro](docs/product-phone-pro.png)
 
 ## Hosted demo
 
-Deploy on [Vercel](https://vercel.com): import the GitHub repo, add `COGNODB_URI`, `COGNODB_USER`, `COGNODB_PASSWORD` as project env vars, deploy. Keep the CognoDB instance running until Wexa has reviewed.
+**https://cascade-gold-beta.vercel.app**
 
-Demo URL: _add after deploy_
+Deployed on [Vercel](https://vercel.com). Env vars: `COGNODB_URI`, `COGNODB_USER`, `COGNODB_PASSWORD`. Keep the CognoDB instance running until Wexa has reviewed.
 
 ## Screen recording
 
